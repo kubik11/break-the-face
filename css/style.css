@@ -1,0 +1,149 @@
+
+
+*::-webkit-input-placeholder{
+	color: #666;
+	opacity: 1;
+}
+	
+*:-moz-placeholder{
+	color: #666;
+	opacity: 1;
+}
+	
+*::-moz-placeholder{
+	color: #666;
+	opacity: 1;
+}
+	
+*:-ms-input-placeholder{
+	color: #666;
+	opacity: 1;
+}
+	
+
+h1, h2, h3, h4, h5{
+	padding: 0px;
+	margin: 0px;
+}
+
+body{
+	line-height: 1.6;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	height: 100%;
+	cursor: url('img/axx.png');
+}
+ul{
+	margin: 0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.container{
+	max-width: 100%;
+	padding: 0px 15px;
+	position: relative;
+}
+/*font-family: 'Pacifico', cursive;*/
+
+/*Caption*/
+.active-caption{
+	position: absolute;
+	transform: translateX(-50%);
+	left: 50%;
+}
+.active-caption .h2{
+	color: #fff;
+	opacity: 0.8;
+}
+.caption{
+	text-align: center;
+}
+.caption .h2{
+	font-size: 40px;
+	font-family: 'Pacifico', cursive;
+	color: #841d1d;
+	display: inline-block;
+}
+.contious{
+	padding: 15px 0px;
+	background-color: rgba(255, 50, 4, 0.5);
+}
+.contious .trial-wrap .trial{
+	vertical-align: middle;
+	margin-top: 5px;
+}
+.contious .trial-wrap::before{
+	display: inline-block;
+	content: "";
+	height: 100%;
+	width: 0px;
+	vertical-align: middle;
+}
+.contious .trial-wrap .trial{
+	float: left;
+}
+.contious .trial-wrap .trial .fa{
+	margin: 0px 10px;
+}
+.contious .trial-wrap .score{
+	float: right;
+	padding: 5px 15px;
+	letter-spacing: 3px;
+	color: #fff;
+	background-color: rgba(255, 50, 4, 0.5);
+	border-radius: 5px;
+}
+.game-field{
+	background-color:  rgba(64, 2, 40, 1);
+	padding: 20px 0px;
+	text-align: center;
+	
+}
+.game-field-inner{
+	max-height: 600px;
+	height: 400px;
+	width: 70%;
+	margin: 0px auto; 
+	border-radius: 20px;
+	position: relative;
+	background-color: #fff;
+	overflow: hidden;
+	cursor: url(../img/cursor.gif);
+}
+.game-field-inner .game-item{
+	position: absolute;
+	top: -250px;
+	display: inline-block;
+}
+.game-field .button{
+	margin: 20px auto;
+	display: inline-block;
+}
+.button{
+	background-color: #fff;
+	opacity: 0.8;
+	padding: 10px 20px;
+	letter-spacing: 3px;
+	border-radius: 5px;
+	color: rgba(64, 2, 40, 1);
+	border-width: 0px;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.5s ease;
+}
+.button:hover{
+	transform: scale(1.2);
+	letter-spacing: 2px;
+
+}
+.button:active{
+	opacity: 1;
+}
