@@ -1,7 +1,8 @@
 (function (){
-	var faces, contious, trials, viewHeight;
+	var faces, contious, trials, viewHeight, score, timer;
 	contious = false;
 	trials = 3;
+	score = 0;
 	viewHeight = $('.game-field-inner').innerHeight();
 	faces = ['grois', 'jac', 'parash'];
 	var view = {
@@ -11,6 +12,8 @@
 		trial: $('.trial'),
 		caption: $('.caption'),
 		field: $('.game-field-inner'),
+		score: $('#score-inner'),
+		end: $('#end'),
 
 		changeButton: function(){
 			if(!contious){
@@ -28,6 +31,13 @@
 		},
 		showAx: function(){
 			this.field.css('cursor', 'url(../img/ax.png)');
+		},
+		showTheScore: function(){
+			this.score.html(score);
+		},
+		gameOver: function(){
+			this.end.html(score);
+			this.end.parent().parent().show();
 		}
 	}
 	$(document).ready(function(){
@@ -40,9 +50,17 @@
 			view.changeButton(); // changed button 
 			contious = true; // changed contious of game
 			goDown();// begining of declining
-			
+			// 6. Hang event handler('mouseover') on the element 
+			view.face.mouseover(function(){
+				score ++;
+				view.showTheScore();//show the game score
+				$(this).effect('explode');
+				clearInterval(timer);
+				setTimeout(goDown, 400);
+			});
 		}
 		function face(){
+			view.face.show();
 			view.face.attr({
 				src: 'img/'+faces[Math.floor(Math.random()*3)]+'.png'
 			});
@@ -53,20 +71,23 @@
 			face();// define a face
 			view.updateTrials(); //update count of hearts
 			if(trials > 0){
-				var timer = setInterval(function(){
+				timer = setInterval(function(){
 					var position;
 					position = parseInt(view.face.css('top'));
 					
 					if(position < viewHeight){
 						view.face.css('top', position + 10 + 'px');
+						console.log(view.face.css('top'));
 					}else{
 						console.log('its too low');
 						trials--;
 						clearInterval(timer);
-						alert(trials);
+						// alert(trials);
 						setTimeout(goDown, 400);
 					}
 				}, Math.floor(Math.random()*10)*10);
+			}else{
+				view.gameOver();
 			}
 		}	
 			// 3. Check condition if the game has started
